@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template, request
 import requests
 
@@ -26,4 +27,5 @@ def convert():
     return render_template('currency.html', result=result)
     
 if __name__ == '__main__':
-    app.run(port=5002,debug=True)
+ port=int(os.environ.get("PORT",5000))
+    app.run(host='0.0.0.0',port=port)
